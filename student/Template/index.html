@@ -1,150 +1,114 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Django</title>
+{% extends "base.html" %} {% block title %} Home {% endblock %} 
+{% block content %}
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
+<div class="container">
+  <!-- Hero Section -->
+  <section class="glass-card p-5 mb-5 text-center">
+    <img
+      src="https://w7.pngwing.com/pngs/10/113/png-transparent-django-web-development-web-framework-python-software-framework-django-text-trademark-logo-thumbnail.png"
+      class="rounded-circle shadow mb-4"
+      width="100"
+      height="100"
+      alt="Django Logo"
     />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+    <h1 class="display-5 fw-bold text-primary">Welcome to Django Project</h1>
 
-      nav {
-        display: flex;
-        padding: 2px;
-        margin-bottom: 20px;
-        background-color: #73e4f3;
-      }
+    <h4 class="text-secondary mb-3">by Krishna Khatri-1028</h4>
 
-      nav ul {
-        display: flex;
-        gap: 20px;
-        list-style: none;
-        position: relative;
-        justify-content: right;
-        margin-right: 20px;
-        margin-left: 750px;
-        margin-top: 10px;
-      }
+    <p class="lead">Your first Django HTML page is running successfully.</p>
 
-      nav img {
-        height: 50px;
-        margin-right: 20px;
-        justify-content: left;
-      }
+    <button class="btn btn-primary btn-lg mt-3">
+      Web Application Development by Django
+    </button>
+  </section>
 
-      nav ul li a {
-        text-decoration: none;
-        color: black;
-        font-size: 20px;
-      }
+  <div class="row g-4">
+    <!-- Student Information -->
 
-      body {
-        background: linear-gradient(to right, #1b1bff, #02bbfe);
-        height: 100vh;
-        align-items: center;
-      }
+    <div class="col-lg-6">
+      <div class="glass-card p-4 h-100">
+        <h3 class="text-primary mb-4">👨‍🎓 Student Information</h3>
 
-      .card {
-        width: 600px;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        margin: 0 auto;
-        width: 50%;
-      }
+        <table class="table table-borderless">
+          <tr>
+            <th>Name</th>
+            <td>{{ data.name|title }}</td>
+          </tr>
 
-      h1 {
-        color: #0b5c9f;
-        font-weight: bold;
-      }
+          <tr>
+            <th>Course</th>
+            <td>{{ data.course }}</td>
+          </tr>
 
-      p {
-        font-size: 20px;
-        color: #0c0c0c;
-      }
+          <tr>
+            <th>College</th>
+            <td>{{ data.collage }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-      button {
-        background-color: brown;
-      }
-    </style>
-  </head>
+    <!-- Subject List -->
 
-  <body>
-    <div>
-      <nav>
-        <img
-          src="https://images.ctfassets.net/23aumh6u8s0i/6ubUHRD1qfolOVHxiBfjZ7/4e704f48dc5b0104d0c380fec1fe9b9e/django"
-          alt="Django Logo"
-          style="height: 50px; margin-right: 20px"
-        />
-        <h4 style="color: black; margin-right: 20px">Django Project</h4>
-        <ul>
-          <li><a href="index/">Home</a></li>
-          <li><a href="about/">About</a></li>
-          <li><a href="contact/">Contact</a></li>
+    <div class="col-lg-6">
+      <div class="glass-card p-4 h-100">
+        <h3 class="text-success mb-4">📚 Subject List</h3>
+
+        <ul class="list-group">
+          {% for subject in subject_list %}
+
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            {{ forloop.counter }}. {{ subject }} {% if subject == "Angular" %}
+
+            <span class="badge bg-success"> Interesting Subject </span>
+
+            {% else %}
+
+            <span class="badge bg-secondary"> Regular </span>
+
+            {% endif %}
+          </li>
+
+          {% endfor %}
         </ul>
-      </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Card -->
+
+  <div class="glass-card p-5 mt-5 text-center">
+    <h2 class="text-primary mb-4">Student Makrs: 80%</h2>
+
+    {% if marks >= 75 %}
+
+    <div class="alert alert-success">
+      <h3 class="mb-0">🏆 Distinction</h3>
     </div>
 
-    <div class="card">
-      <h1>Welcome to Django Project by Krishna Khatri</h1>
-      <p>Your first Django HTML page is running successfully.</p>
-      <h3 style="color: #044444; text-align: center">Student Information:-</h3>
-      <p style="color: #044444; text-align: center">
-        Name: {{data.name | title}}
-      </p>
-      <p style="color: #044444; text-align: center">Course: {{data.course}}</p>
-      <p style="color: #044444; text-align: center">
-        College: {{data.collage}}
-      </p>
-      <h2 style="color: #044444; text-align: center">Subject List</h2>
-      <ul
-        style="
-          color: #044444;
-          text-align: center;
-          list-style-type: none;
-          font-size: 1.2rem;
-        "
-        class="subject-list"
-      >
-        {% for subject in subject_list %}
-        <li>
-          {{ forloop.counter }}.{{ subject}} {% if subject == Agile %}
-          <span class="badge bg-danger"> Interesting Subject </span>
-          <% else %>
-          <span>Regular</span>
+    {% elif marks >= 60 %}
 
-          {% endif %}
-        </li>
-
-        {% empty %}
-
-        <li>No subjects available.</li>
-
-        {% endfor %}
-      </ul>
-      {% if marks >= 75 %}
-      <h2>Distinction</h2>
-      {% elif marks >= 60 %}
-      <h2>First Class</h2>
-      {% elif marks >= 35 %}
-      <h2>pass</h2>
-      {% else %}
-      <h2>Fail</h2>
-      {% endif %}
-      <button class="btn btn-outline-primary mt-3">
-        Web Application Development by Django
-      </button>
+    <div class="alert alert-info">
+      <h3 class="mb-0">🎉 First Class</h3>
     </div>
-  </body>
-</html>
+
+    {% elif marks >= 35 %}
+
+    <div class="alert alert-warning">
+      <h3 class="mb-0">✅ Pass</h3>
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-danger">
+      <h3 class="mb-0">❌ Fail</h3>
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

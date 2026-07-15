@@ -1,195 +1,264 @@
-<!-- your_app/templates/about.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Our Django Application</title>
-    
-    <!-- Internal CSS -->
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+{% extends "base.html" %}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
-            line-height: 1.7;
-            padding: 40px 20px;
-        }
+{% block title %}
+About
+{% endblock %}
 
-        .wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            border-top: 6px solid #092e20; /* Django Corporate Green */
-        }
+{% block content %}
 
-        header {
-            background: #092e20;
-            color: #ffffff;
-            padding: 40px;
-            text-align: center;
-        }
+<div class="container">
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    <!-- Hero Section -->
 
-        header p {
-            color: #a3e635; /* Light accent green */
-            font-size: 1.2rem;
-        }
+    <section class="glass-card text-center p-5 mb-5">
 
-        .content {
-            padding: 40px;
-        }
+        <img src="https://w7.pngwing.com/pngs/10/113/png-transparent-django-web-development-web-framework-python-software-framework-django-text-trademark-logo-thumbnail.png"
+             class="rounded-circle shadow mb-4"
+             width="100"
+             alt="Django">
 
-        .section {
-            margin-bottom: 40px;
-        }
+        <h1 class="display-5 fw-bold text-primary">
+            About This Application
+        </h1>
 
-        .section h2 {
-            color: #092e20;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 8px;
-        }
+        <p class="lead text-secondary">
+            A deep dive into our Django-powered web environment
+        </p>
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+    </section>
 
-        .card {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #10b981;
-        }
+    <!-- Project Overview -->
 
-        .card h3 {
-            color: #1e293b;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
+    <section class="glass-card p-5 mb-5">
 
-        .steps {
-            list-style-type: none;
-            margin-top: 15px;
-        }
+        <h2 class="section-title">
+            Project Overview
+        </h2>
 
-        .steps li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 12px;
-        }
+        <p class="section-text">
 
-        .steps li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: #e2e8f0;
-            color: #092e20;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
+            Welcome to our core introduction page. This web application is engineered utilizing
+            <strong>Django</strong>, a high-level Python web framework designed to encourage
+            rapid, clean, and pragmatic development.
 
-        code {
-            background-color: #f1f5f9;
-            color: #b91c1c;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: Courier, monospace;
-            font-size: 0.95rem;
-        }
+            Django takes care of much of the hassle of web development,
+            allowing us to focus entirely on writing application logic without
+            reinventing the wheel.
 
-        footer {
-            background: #f1f5f9;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-    </style>
-</head>
-<body>
+        </p>
 
-    <div class="wrapper">
-        <header>
-            <h1>About This Application</h1>
-            <p>A deep dive into our Django-powered web environment</p>
-        </header>
+    </section>
 
-        <div class="content">
-            <!-- Section 1: Introduction -->
-            <div class="section">
-                <h2>Project Overview</h2>
-                <p>Welcome to our core introduction page. This web application is engineered utilizing <strong>Django</strong>, a high-level Python web framework designed to encourage rapid, clean, and pragmatic design. Django takes care of much of the hassle of web development, allowing us to focus entirely on writing app logic without needing to reinvent the wheel.</p>
-            </div>
+    <!-- Why Django -->
 
-            <!-- Section 2: Core Architecture Grid -->
-            <div class="section">
-                <h2>Why We Use Django</h2>
-                <p>Django follows the <strong>MVT (Model-View-Template)</strong> software design pattern, which splits logic cleanly into three independent parts:</p>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h3>1. Models (Data)</h3>
-                        <p>The single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you are storing.</p>
+    <section class="mb-5">
+
+        <h2 class="text-center text-white mb-4">
+
+            Why We Use Django
+
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="glass-card feature-card h-100">
+
+                    <div class="feature-icon">
+
+                        📂
+
                     </div>
-                    <div class="card">
-                        <h3>2. Views (Logic)</h3>
-                        <p>The callback function that receives web requests and returns web responses. This is where business logic lives.</p>
-                    </div>
-                    <div class="card">
-                        <h3>3. Templates (Layout)</h3>
-                        <p>The presentation layer. It determines exactly how the data should be structured and rendered in the user's browser.</p>
-                    </div>
+
+                    <h4>Models (Data)</h4>
+
+                    <p>
+
+                        The single, definitive source of truth about your data.
+                        It contains the essential fields and behaviors of the data
+                        you are storing.
+
+                    </p>
+
                 </div>
+
             </div>
 
-            <!-- Section 3: Process Flow -->
-            <div class="section">
-                <h2>How This Page Was Made</h2>
-                <p>When you clicked or typed the URL for this page, Django executed a specific lifecycle workflow behind the scenes:</p>
-                <ul class="steps">
-                    <li><strong>URL Matching:</strong> Django checked your request against the patterns defined in <code>urls.py</code> and found a match for <code>/about/</code>.</li>
-                    <li><strong>Executing View Logic:</strong> The request was handed off to the <code>about_page</code> function located inside <code>views.py</code>.</li>
-                    <li><strong>Context Processing:</strong> The view collected necessary backend data and injected it cleanly into the rendering pipeline.</li>
-                    <li><strong>Template Rendering:</strong> The template engine processed this HTML file, evaluated the internal CSS rules, and delivered a compiled page back to your browser.</li>
-                </ul>
+            <div class="col-md-4">
+
+                <div class="glass-card feature-card h-100">
+
+                    <div class="feature-icon">
+
+                        ⚙️
+
+                    </div>
+
+                    <h4>Views (Logic)</h4>
+
+                    <p>
+
+                        The callback function that receives web requests and
+                        returns responses. This is where business logic lives.
+
+                    </p>
+
+                </div>
+
             </div>
 
-            <!-- Section 4: Dynamic Django Content placeholder -->
-            <div class="section">
-                <h2>System Status</h2>
-                <p>This application is running live. The layout rules governing this specific box are encapsulated inside the document's header as <code>internal style sheets</code>, allowing for completely independent styling without external framework baggage.</p>
+            <div class="col-md-4">
+
+                <div class="glass-card feature-card h-100">
+
+                    <div class="feature-icon">
+
+                        💻
+
+                    </div>
+
+                    <h4>Templates (Layout)</h4>
+
+                    <p>
+
+                        The presentation layer that determines how information
+                        is displayed to users inside the browser.
+
+                    </p>
+
+                </div>
+
             </div>
+
         </div>
 
-        <footer>
-            &copy; 2026 Django Framework Portal. Built for speed, security, and scalability.
-        </footer>
-    </div>
+    </section>
 
-</body>
-</html>
+    <!-- Workflow -->
+
+    <section class="glass-card p-5 mb-5">
+
+        <h2 class="section-title">
+
+            How This Page Was Made
+
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span>1</span>
+
+                <div>
+
+                    <h5>URL Matching</h5>
+
+                    <p>
+
+                        Django checked your request against the patterns defined
+                        in <code>urls.py</code> and matched
+                        <code>/about/</code>.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>2</span>
+
+                <div>
+
+                    <h5>Executing View Logic</h5>
+
+                    <p>
+
+                        The request was forwarded to the
+                        <code>about_page</code> function located in
+                        <code>views.py</code>.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>3</span>
+
+                <div>
+
+                    <h5>Context Processing</h5>
+
+                    <p>
+
+                        The backend collected data and injected it into
+                        the rendering pipeline.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>4</span>
+
+                <div>
+
+                    <h5>Template Rendering</h5>
+
+                    <p>
+
+                        Django processed this HTML template,
+                        evaluated all template tags,
+                        and rendered the final page.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Status -->
+
+    <section class="glass-card p-5">
+
+        <h2 class="section-title">
+
+            System Status
+
+        </h2>
+
+        <div class="alert alert-success shadow-sm">
+
+            <h5 class="mb-2">
+
+                ✅ Application Running Successfully
+
+            </h5>
+
+            <p class="mb-0">
+
+                This application is running live. The layout is controlled
+                using internal style sheets and Django template rendering.
+
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
