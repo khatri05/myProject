@@ -5,14 +5,14 @@ About
 {% endblock %}
 
 {% block content %}
-
+{% load static %}
 <div class="container">
 
     <!-- Hero Section -->
 
     <section class="glass-card text-center p-5 mb-5">
 
-        <img src="https://w7.pngwing.com/pngs/10/113/png-transparent-django-web-development-web-framework-python-software-framework-django-text-trademark-logo-thumbnail.png"
+        <img src="{% static 'images/logo.png' %}"
              class="rounded-circle shadow mb-4"
              width="100"
              alt="Django">
