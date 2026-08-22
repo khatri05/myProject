@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+Student List from Database
+{% endblock %}
+
+{% block content %}
+<div class="form-card">
+
+    <h2 class="form-title">Edit Student</h2>
+
+    <p class="form-subtitle">
+        Update student details below
+    </p>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <!-- Student Name -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                Student Name
+            </label>
+
+            <input type="text" name="name" class="form-control" value="{{ student.name }}" required>
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                Email Address
+            </label>
+
+            <input type="email" name="email" class="form-control" value="{{ student.email }}" required>
+
+        </div>
+
+
+        <!-- Mobile -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                Mobile Number
+            </label>
+
+            <input type="text" name="mobile" class="form-control" value="{{ student.mobile }}" required>
+
+        </div>
+
+
+        <!-- City -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                City
+            </label>
+
+            <input type="text" name="city" class="form-control" value="{{ student.city }}" required>
+
+        </div>
+
+
+        <!-- Course -->
+        <div class="mb-4">
+
+            <label class="form-label">
+                Course
+            </label>
+
+            <select name="course" class="form-select" required>
+
+                {% for c in courses %}
+
+                <option value="{{ c.id }}">
+                    {{ c.course_name }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-person-lines-fill me-2"></i>
+                Update Student
+            </button>
+
+            <a href="{% url 'list' %}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left-circle me-2"></i>
+                Back
+            </a>
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}

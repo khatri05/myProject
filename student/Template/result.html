@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %} Result {% endblock %} 
+{% block content %}
+{% load static %}
+
+<!-- Result Card -->
+
+<div class="glass-card p-5 mt-5 text-center">
+    <h2 class="text-primary mb-4">Student Marks: 80%</h2>
+
+    {% if marks >= 75 %}
+
+    <div class="alert alert-success">
+      <h3 class="mb-0">🏆 Distinction</h3>
+    </div>
+
+    {% elif marks >= 60 %}
+
+    <div class="alert alert-info">
+      <h3 class="mb-0">🎉 First Class</h3>
+    </div>
+
+    {% elif marks >= 35 %}
+
+    <div class="alert alert-warning">
+      <h3 class="mb-0">✅ Pass</h3>
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-danger">
+      <h3 class="mb-0">❌ Fail</h3>
+    </div>
+
+    {% endif %}
+  </div>
+
+{% endblock %}

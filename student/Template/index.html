@@ -6,21 +6,19 @@
   <!-- Hero Section -->
   <section class="glass-card p-5 mb-5 text-center">
     <img
-      src="{% static 'images/logo.png' %}"
+      src="{% static 'images/image.png' %}"
       class="rounded-circle shadow mb-4"
       width="100"
       height="100"
       alt="Django Logo"
     />
 
-    <h1 class="display-5 fw-bold text-primary">Welcome to Django Project</h1>
+    <h1 class="display-5 fw-bold text-primary">Welcome to Student Management System</h1>
 
-    <h4 class="text-secondary mb-3">by Krishna Khatri-1028</h4>
-
-    <p class="lead">Your first Django HTML page is running successfully.</p>
+    <p class="lead">The Student Management System homepage is running successfully.</p>
 
     <button class="btn btn-primary btn-lg mt-3btn-custom" onClick="showMessage();">
-      Web Application Development by Django
+      Tap to learn more
     </button>
   </section>
 
@@ -77,38 +75,6 @@
         </ul>
       </div>
     </div>
-  </div>
-
-  <!-- Result Card -->
-
-  <div class="glass-card p-5 mt-5 text-center">
-    <h2 class="text-primary mb-4">Student Makrs: 80%</h2>
-
-    {% if marks >= 75 %}
-
-    <div class="alert alert-success">
-      <h3 class="mb-0">🏆 Distinction</h3>
-    </div>
-
-    {% elif marks >= 60 %}
-
-    <div class="alert alert-info">
-      <h3 class="mb-0">🎉 First Class</h3>
-    </div>
-
-    {% elif marks >= 35 %}
-
-    <div class="alert alert-warning">
-      <h3 class="mb-0">✅ Pass</h3>
-    </div>
-
-    {% else %}
-
-    <div class="alert alert-danger">
-      <h3 class="mb-0">❌ Fail</h3>
-    </div>
-
-    {% endif %}
   </div>
 </div>
 

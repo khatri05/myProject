@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %} Course List {% endblock %} 
+{% block content %}
+{% load static %}
+
+<h2 class="text-dark mb-4">Course List</h2>
+<ul class="list-group w-25 mb-4">
+    {% for course in courses %}
+        <li class="list-group-item">{{ forloop.counter }}. {{ course }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %} Student {% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container mt-5">
+    <h2 class="text-center text-dark mb-4">Student Marks List</h2>
+
+    <div class="row">
+        {% for employee in employees %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ employee.name }}</h5>
+
+                    <p class="card-text">
+                        Marks:
+                        <strong>{{ employee.marks }}</strong>
+                    </p>
+
+                    {% if employee.marks > 40 %}
+                    <span class="badge bg-success fs-6">
+                        High Marks
+                    </span>
+                    {% else %}
+                    <span class="badge bg-danger text-white fs-6">
+                        Failing Marks
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">
+                No employees found.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

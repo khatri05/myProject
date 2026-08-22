@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Department List from Database
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center text-dark">Department List</h2>
+
+<div class="table-responsive mb-5 mt-4">
+    <table class="table align-middle text-center">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Department Name</th>
+                <th>Supervisor Name</th>
+                <th>Department Type</th>
+                <th>HOD Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dept in depts %}
+            <tr>
+                <td>{{ dept.id }}</td>
+                <td>{{ dept.dept_name }}</td>
+                <td>{{ dept.supervisor_name }}</td>
+                <td>{{ dept.dept_type }}</td>
+                <td>{{ dept.hod_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

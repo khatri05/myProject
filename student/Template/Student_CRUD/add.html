@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+Student List from Database
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4 form-card">
+
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h3 class="mb-0">
+                <i class="bi bi-person-plus-fill me-2"></i>
+                Add Student
+            </h3>
+        </div>
+
+        <div class="card-body p-4">
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter student name">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter email">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mobile Number</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Enter mobile number">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" name="city" class="form-control" placeholder="Enter city">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Course</label>
+
+                    <select name="course" class="form-select">
+                        {% for c in courses %}
+                        <option value="{{ c.id }}">{{ c.course_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        Save Student
+                    </button>
+
+                    <a href="{% url 'list' %}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left-circle me-2"></i>
+                        Back
+                    </a>
+                </div>
+
+            </form>
+            <!-- <form method="POST">
+                <h2>Add Student with django forms</h2>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save</button>
+            </form> -->
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
